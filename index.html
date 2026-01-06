@@ -2,34 +2,153 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
-  <title>シルエットあわせ（ドラッグ）</title>
-  <link rel="stylesheet" href="./style.css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>こどもゲーム えらぶ</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel: rgba(255,255,255,.06);
+      --stroke: rgba(255,255,255,.16);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 600px at 50% 0%, #16224a, var(--bg));
+    }
+    header{
+      padding: 20px 16px 8px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    h1{
+      margin: 0 0 6px;
+      font-size: 22px;
+      letter-spacing: .02em;
+    }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    main{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 14px 16px 30px;
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 760px){
+      main{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+    a.card{
+      display:block;
+      text-decoration:none;
+      color:inherit;
+      border: 1px solid var(--stroke);
+      background: var(--panel);
+      border-radius: 18px;
+      padding: 16px;
+      transition: transform .12s ease, background .12s ease;
+    }
+    a.card:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.08);
+    }
+    .titleRow{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .gameTitle{
+      font-size: 18px;
+      font-weight: 900;
+      margin: 0;
+    }
+    .badge{
+      font-size: 12px;
+      font-weight: 900;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: rgba(0,0,0,.18);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .desc{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-weight: 600;
+    }
+    .thumb{
+      margin-top: 12px;
+      border-radius: 14px;
+      border: 1px solid var(--stroke);
+      background: rgba(0,0,0,.14);
+      height: 120px;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+    }
+    .thumb span{
+      color: rgba(255,255,255,.78);
+      font-weight: 900;
+      letter-spacing: .02em;
+    }
+    .disabled{
+      opacity: .65;
+      pointer-events: none;
+      filter: grayscale(0.3);
+    }
+    footer{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px 20px;
+      color: rgba(255,255,255,.55);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="title">シルエットに あう え を いれてね</div>
-    <button id="btnNext" class="btn" aria-label="つぎ">つぎ</button>
+  <header>
+    <h1>あそぶ ゲームを えらんでね</h1>
+    <p class="sub">スマホでもあそべます。おとなが そばで みてあげてね。</p>
   </header>
 
-  <main class="layout">
-    <section class="panel">
-      <div class="label">ここに いれてね</div>
-      <div id="dropZone" class="dropzone" aria-label="シルエットのわく">
-        <div id="silhouette" class="silhouette" aria-hidden="true"></div>
-        <div id="placed" class="placed" aria-hidden="true"></div>
+  <main>
+    <!-- 既存：絵合わせゲーム -->
+    <a class="card" href="./match/">
+      <div class="titleRow">
+        <p class="gameTitle">シルエットあわせ（ドラッグ）</p>
+        <span class="badge">あそべる</span>
       </div>
+      <p class="desc">シルエットに あう え を ドラッグして いれてね。</p>
+      <div class="thumb"><span>▶ スタート</span></div>
+    </a>
 
-      <div id="feedback" class="feedback" aria-live="polite"></div>
-    </section>
-
-    <section class="panel">
-      <div class="label">えを ドラッグしてね</div>
-      <div id="cards" class="cards" aria-label="えのカード"></div>
-    </section>
+    <!-- 追加予定：サンプル（後でリンク先を作る） -->
+    <a class="card disabled" href="#">
+      <div class="titleRow">
+        <p class="gameTitle">（つくるよてい）えさがし</p>
+        <span class="badge">じゅんびちゅう</span>
+      </div>
+      <p class="desc">いくつかの え のなかから みつけてね。</p>
+      <div class="thumb"><span>Coming soon</span></div>
+    </a>
   </main>
 
-  <script type="module" src="./questions.js"></script>
-  <script type="module" src="./game.js"></script>
+  <footer>
+    ＊ このページを「ホーム」にして、ゲームをふやしていけます。<br>
+    ＊ 新しいゲームは「フォルダを追加してリンクを増やす」だけでOKです。
+  </footer>
 </body>
 </html>

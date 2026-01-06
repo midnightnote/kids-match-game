@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>シルエットあわせ（ドラッグ）</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="title">シルエットに あう え を いれてね</div>
+    <button id="btnNext" class="btn" aria-label="つぎ">つぎ</button>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <div class="label">ここに いれてね</div>
+      <div id="dropZone" class="dropzone" aria-label="シルエットのわく">
+        <div id="silhouette" class="silhouette" aria-hidden="true"></div>
+        <div id="placed" class="placed" aria-hidden="true"></div>
+      </div>
+
+      <div id="feedback" class="feedback" aria-live="polite"></div>
+    </section>
+
+    <section class="panel">
+      <div class="label">えを ドラッグしてね</div>
+      <div id="cards" class="cards" aria-label="えのカード"></div>
+    </section>
+  </main>
+
+  <script type="module" src="./questions.js"></script>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>

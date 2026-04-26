@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>えあわせ</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="title">シルエットに あう えを いれてね</div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <select id="bgSelect" class="btn" aria-label="背景を選ぶ"></select>
+      <button id="btnNext" class="btn" type="button">つぎ</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="panel">
+      <div class="label">ここに いれてね</div>
+      <div id="dropZone" class="dropzone">
+        <div id="silhouette" class="silhouette"></div>
+        <div id="placed" class="placed"></div>
+      </div>
+      <div id="feedback" class="feedback" aria-live="polite"></div>
+    </div>
+
+    <div class="panel">
+      <div class="label">えを ドラッグしてね</div>
+      <div id="cards" class="cards"></div>
+    </div>
+  </div>
+
+  <!-- cast -->
+  <div class="cast">
+    <!-- hero: left-bottom (face left, bubble right) -->
+    <div id="hero" class="mascot hero" tabindex="0" role="button" aria-label="hero">
+      <div class="mascot-face">
+        <img id="heroFace" class="mascot-img" alt="hero" />
+      </div>
+      <div class="mascot-bubble">
+        <div id="heroText" class="mascot-text"></div>
+        <div class="mascot-bubble-tail"></div>
+      </div>
+    </div>
+
+    <!-- buddy: right-bottom (face right, bubble left) -->
+    <div id="buddy" class="mascot buddy" tabindex="0" role="button" aria-label="buddy">
+      <div class="mascot-face">
+        <img id="buddyFace" class="mascot-img" alt="buddy" />
+      </div>
+      <div class="mascot-bubble">
+        <div id="buddyText" class="mascot-text">…</div>
+        <div class="mascot-bubble-tail"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./game.js"></script>
+</body>
+</html>

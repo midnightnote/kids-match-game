@@ -1,0 +1,8 @@
+{
+  "backgrounds": [
+    { "id": "default", "name": "よる", "file": "" },
+    { "id": "cloth", "name": "ぬの", "file": "cloth.jpg" },
+    { "id": "wood",  "name": "もくめ", "file": "wood.jpg" },
+    { "id": "paper", "name": "かみ", "file": "paper.jpg" }
+  ]
+}

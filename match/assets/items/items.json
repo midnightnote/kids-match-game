@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "id": "apple", "name": "りんご", "dir": "apple" },
+    { "id": "fish",  "name": "さかな", "dir": "fish"  },
+    { "id": "car",   "name": "くるま", "dir": "car"   }
+  ]
+}
